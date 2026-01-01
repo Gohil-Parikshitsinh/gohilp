@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parikshitsinh | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Parikshitsinh Gohil — Full Stack Developer skilled in React, Node.js, Django, MERN Stack, and modern web development."
+    />
+
+    <meta
+      name="keywords"
+      content="Parikshitsinh Gohil, Full Stack Developer, React Developer, MERN Stack, Django Developer,Data Science, AI Engineer, Data Engineer Portfolio"
+    />
+
+    <meta name="author" content="Parikshitsinh Gohil" />
+
+    <!-- Google Font (Notion-like) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background-color: #ffffff;
+        color: #111111;
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: sticky;
+        top: 0;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e5e5;
+        z-index: 100;
+      }
+
+      .nav-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 16px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0%;
+        height: 1px;
+        background: #111;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+      }
+      .btn_resume {
+        padding: 8px 14px;
+        font-size: 13px;
+        text-decoration: none;
+        background: #111;
+        color: #fff !important;
+        border-radius: 6px;
+        border: 1px solid #111;
+      }
+
+      /* About Layout */
+      .about {
+        padding: 80px 20px;
+      }
+
+      .about-container {
+        max-width: 900px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        gap: 48px;
+      }
+
+      /* Circular Image */
+      .about-image img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2.5px solid #111;
+      }
+
+      /* About Content */
+      .about-content h1 {
+        font-size: 34px;
+        margin-bottom: 14px;
+      }
+
+      .about-content span {
+        font-weight: 600;
+      }
+
+      .about-content .summary {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 22px;
+      }
+
+      .socials {
+        display: flex;
+        gap: 18px;
+      }
+
+      .socials a {
+        color: #111;
+        font-size: 20px;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .socials a:hover {
+        transform: translateY(-2px);
+        opacity: 0.7;
+      }
+      /* Responsive */
+      @media (max-width: 768px) {
+        .about-container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .about-image img {
+          width: 150px;
+          height: 150px;
+        }
+
+        .socials {
+          justify-content: center;
+        }
+      }
+
+      .section-title {
+        max-width: 1100px;
+        margin: 0 auto 32px;
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .education {
+        padding: 80px 20px;
+      }
+
+      .education-grid {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+      }
+
+      /* Education Card */
+      .education-card {
+        padding: 20px;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        background: #fff;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .education-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      }
+
+      .education-card h3 {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .institute {
+        font-size: 14px;
+        color: #444;
+        margin-bottom: 6px;
+      }
+
+      .details {
+        font-size: 13px;
+        color: #777;
+      }
+
+      .score {
+        font-size: 13px;
+        color: #555;
+        margin-top: 10px;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .education {
+          padding: 60px 20px;
+        }
+      }
+
+      .skills {
+        padding: 80px 20px;
+      }
+
+      .skills-grid {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+
+      /* Skill Card */
+      .skill-card {
+        padding: 20px;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .skill-card h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+
+      /* Progress Bar */
+      .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: #e5e5e5;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .progress-bar span {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: #111;
+        transition: width 1.2s ease;
+      }
+
+      .skill-card small {
+        font-size: 12px;
+        color: #555;
+        display: block;
+        margin-top: 8px;
+      }
+
+      .projects {
+        padding: 80px 20px;
+      }
+
+      .projects-grid {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      /* Project Card */
+      .project-card {
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+        background: #fff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .project-content {
+        padding: 24px;
+      }
+
+      .project-content h3 {
+        font-size: 17px;
+        margin-bottom: 10px;
+      }
+
+      .project-content p {
+        font-size: 14px;
+        color: #444;
+        margin-bottom: 20px;
+      }
+
+      /* Actions */
+      .project-actions {
+        display: flex;
+        gap: 12px;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover .project-actions {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Buttons */
+      .btn {
+        padding: 8px 14px;
+        font-size: 13px;
+        text-decoration: none;
+        background: #111;
+        color: #fff;
+        border-radius: 6px;
+        border: 1px solid #111;
+      }
+
+      .btn.outline {
+        background: transparent;
+        color: #111;
+      }
+
+      /* Mobile UX */
+      @media (max-width: 768px) {
+        .project-actions {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .courses {
+        padding: 80px 20px;
+      }
+
+      .courses-grid {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+      }
+
+      /* Course Card */
+      .course-card {
+        padding: 20px;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        background: #fff;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .course-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      }
+
+      .course-card h3 {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .provider {
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .desc {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 14px;
+      }
+
+      .year {
+        font-size: 12px;
+        color: #777;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .courses {
+          padding: 60px 20px;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+        will-change: opacity, transform;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">Parikshitsinh Gohil</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li>
+            <a
+              href="https://drive.google.com/file/d/1TNuxnRm-k7Q9bfirR9Fa1NXTkJMR03lV/view?usp=sharing"
+              class="btn_resume"
+              >Download Resume</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+      <div class="about-container">
+        <!-- Profile Image -->
+        <div class="about-image">
+          <img
+            src="https://avatars.githubusercontent.com/u/86153600?s=400&u=ef0f4df7d5467614c127ad352eb6503a9d8f2383&v=4"
+            alt="Parikshitsinh Gohil"
+          />
+        </div>
+
+        <!-- About Content -->
+        <div class="about-content">
+          <h1>Hello, I’m <span>Parikshit</span> 👋</h1>
+          <p class="summary">
+            Computer Science student with hands-on experience in MERN Stack and
+            Python, focused on software development and full-stack applications.
+            Developed multiple academic projects demonstrating proficiency in
+            web development, programming fundamentals, and problem-solving.
+            Certified in relevant technologies, with the ability to quickly
+            learn, adapt, and contribute effectively to development teams.
+          </p>
+
+          <div class="socials">
+            <a href="https://github.com/Gohil-Parikshitsinh" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/parikshitsinh-gohil/"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://drive.google.com/file/d/1TNuxnRm-k7Q9bfirR9Fa1NXTkJMR03lV/view?usp=sharing"
+              target="_blank"
+              ><i class="fa-solid fa-link"></i
+            ></a>
+            <a href="mailto:parikshitsinhgohil03@gmail.com" target="_blank"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+      <h2 class="section-title">Education</h2>
+
+      <div class="education-grid">
+        <div class="education-card">
+          <h3>Bachelor of Technology (CST)</h3>
+          <p class="institute">LJ Institute Engineering and Technology</p>
+          <p class="details">2023 – 2027</p>
+          <p class="score">CGPA: 8.96 / 10</p>
+        </div>
+
+        <div class="education-card">
+          <h3>Higher Secondary (12th)</h3>
+          <p class="institute">Mount Liter Zee School</p>
+          <p class="details">2021 – 2023</p>
+          <p class="score">Science Stream (PCM)</p>
+        </div>
+
+        <div class="education-card">
+          <h3>Secondary School (10th)</h3>
+          <p class="institute">Amarchand Singhvi International School</p>
+          <p class="details">2010 – 2021</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>HTML/CSS</h3>
+          <div class="progress-bar">
+            <span data-width="99%"></span>
+          </div>
+          <small>99%</small>
+        </div>
+
+        <div class="skill-card">
+          <h3>JavaScript</h3>
+          <div class="progress-bar">
+            <span data-width="90%"></span>
+          </div>
+          <small>85%</small>
+        </div>
+        <div class="skill-card">
+          <h3>Python</h3>
+          <div class="progress-bar">
+            <span data-width="90%"></span>
+          </div>
+          <small>90%</small>
+        </div>
+
+        <div class="skill-card">
+          <h3>Django</h3>
+          <div class="progress-bar">
+            <span data-width="95%"></span>
+          </div>
+          <small>95%</small>
+        </div>
+
+        <div class="skill-card">
+          <h3>NodeJS + ExpressJS</h3>
+          <div class="progress-bar">
+            <span data-width="90%"></span>
+          </div>
+          <small>95%</small>
+        </div>
+        <div class="skill-card">
+          <h3>ReactJS</h3>
+          <div class="progress-bar">
+            <span data-width="80%"></span>
+          </div>
+          <small>80%</small>
+        </div>
+        <div class="skill-card">
+          <h3>AI/ML</h3>
+          <div class="progress-bar">
+            <span data-width="80%"></span>
+          </div>
+          <small>80%</small>
+        </div>
+        <div class="skill-card">
+          <h3>Java</h3>
+          <div class="progress-bar">
+            <span data-width="75%"></span>
+          </div>
+          <small>75%</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Payroll Management System</h3>
+            <p>
+              Django-based payroll system with employee management, leave
+              tracking, and salary generation.
+            </p>
+
+            <div class="project-actions">
+              <a
+                href="https://github.com/Gohil-Parikshitsinh/PayrollMS"
+                class="btn"
+                target="_blank"
+                >View Project</a
+              >
+              <a href="#" class="btn outline" target="_blank">Live Preview</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Marketing Agency Landing Page</h3>
+            <p>
+              Single-page animated landing website for a marketing agency using
+              modern UI principles.
+            </p>
+
+            <div class="project-actions">
+              <a
+                href="https://github.com/Gohil-Parikshitsinh/MarketX"
+                class="btn"
+                target="_blank"
+                >View Project</a
+              >
+              <a href="#" class="btn outline" target="_blank">Live Preview</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>E-commerce Website</h3>
+            <p>
+              Full-stack e-commerce platform with authentication, product
+              management, and orders.
+            </p>
+
+            <div class="project-actions">
+              <a
+                href="https://github.com/Gohil-Parikshitsinh/sundar-phal-ghar"
+                class="btn"
+                target="_blank"
+                >View Project</a
+              >
+              <a href="#" class="btn outline" target="_blank">Live Preview</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses & Certifications Section -->
+    <section id="courses" class="courses">
+      <h2 class="section-title">Courses & Certifications</h2>
+
+      <div class="courses-grid">
+        <div class="course-card">
+          <h3>Exploratory Data Analysis for Machine Learning</h3>
+          <p class="provider">IBM</p>
+          <p class="desc">
+            Covered Python, Pandas, NumPy, ML algorithms, and real-world data
+            projects.
+          </p>
+          <span class="year">2025</span>
+        </div>
+
+        <div class="course-card">
+          <h3>Introduction to HTML, CSS & JavaScript</h3>
+          <p class="provider">IBM</p>
+          <p class="desc">Learned HTML, CSS and JavaScript</p>
+          <span class="year">2024</span>
+        </div>
+
+        <div class="course-card">
+          <h3>Inheritance and Data Strucures in Java</h3>
+          <p class="provider">University of Pennsylvania</p>
+          <p class="desc">Hands-on experience Data Structure and Algorithms.</p>
+          <span class="year">2024</span>
+        </div>
+
+        <div class="course-card">
+          <h3>Full Stack Web Development</h3>
+          <p class="provider">Apna College</p>
+          <p class="desc">
+            Learned end-to-end web development including frontend, backend,
+            databases, and deployment.
+          </p>
+          <span class="year">2024</span>
+        </div>
+        <div class="course-card">
+          <h3>Java & DSA</h3>
+          <p class="provider">Apna College</p>
+          <p class="desc">
+            Learned Java and implementing Data Structure in it.
+          </p>
+          <span class="year">2024</span>
+        </div>
+
+        <div class="course-card">
+          <h3>Introduction to Java</h3>
+          <p class="provider">LearnQuest</p>
+          <p class="desc">Learned Java Basic</p>
+          <span class="year">2024</span>
+        </div>
+
+        <div class="course-card">
+          <h3>Microsoft Azure Fundamentals</h3>
+          <p class="provider">Microsoft</p>
+          <p class="desc">Hands-on experience Microsoft Azure.</p>
+          <span class="year">2024</span>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    const bars = document.querySelectorAll(".progress-bar span");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.width = entry.target.dataset.width;
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    bars.forEach((bar) => observer.observe(bar));
+  </script>
+
+  <script>
+    const revealElements = document.querySelectorAll(
+      ".about, .education, .skills, .projects, .courses"
+    );
+
+    revealElements.forEach((el) => el.classList.add("reveal"));
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+  </script>
+</html>
